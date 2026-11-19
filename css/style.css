@@ -1,0 +1,207 @@
+/* ========== Reset ========== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-text: #121214;
+  --color-muted: #29292e;
+  --color-link: #6c8ced;
+  --color-bg-light: #f1f5ff;
+  --color-white: #ffffff;
+  --container: 625px;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: "Archivo", system-ui, sans-serif;
+  color: var(--color-text);
+  background: var(--color-white);
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ========== Barra do topo ========== */
+.topbar {
+  background: var(--color-bg-light);
+  text-align: center;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* ========== Hero ========== */
+.hero {
+  position: relative;
+  color: var(--color-white);
+  padding: 3rem 0;
+  /* A imagem já vem escurecida, então o gradiente só reforça o lado do texto */
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0)),
+    url("../img/hero.png") center 25% / cover no-repeat,
+    #1a1a1d;
+}
+
+.logo {
+  display: inline-block;
+}
+
+.logo-img {
+  height: 32px;
+  width: auto;
+}
+
+.hero-text {
+  margin-top: 2rem;
+  max-width: 300px;
+}
+
+.hero-text h1 {
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.hero-text p {
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+
+/* ========== Produtos ========== */
+.products-section {
+  padding: 3rem 0 2.5rem;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 320px;
+  margin: 0 auto 2.5rem;
+}
+
+.section-header h2 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.section-header p {
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem 1rem;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-image {
+  background: var(--color-bg-light);
+  aspect-ratio: 2 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.75rem;
+  overflow: hidden;
+}
+
+.product-image img {
+  width: 75%;
+  height: 100%;
+  object-fit: contain;
+  /* As fotos têm fundo branco: o multiply faz o branco "sumir" no azul do card */
+  mix-blend-mode: multiply;
+  transition: transform 0.25s ease;
+}
+
+.product-card:hover .product-image img {
+  transform: scale(1.08) rotate(-3deg);
+}
+
+.product-name {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.product-category {
+  font-size: 0.5625rem;
+  color: var(--color-link);
+  margin-bottom: 1rem;
+}
+
+.product-price {
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* ========== Tablet ========== */
+@media (max-width: 768px) {
+  :root {
+    --container: 520px;
+  }
+
+  .products {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem 1.25rem;
+  }
+
+  .product-name { font-size: 0.8125rem; }
+  .product-category { font-size: 0.6875rem; }
+  .product-price { font-size: 0.875rem; }
+}
+
+/* ========== Celular ========== */
+@media (max-width: 480px) {
+  .hero {
+    padding: 2rem 0;
+  }
+
+  .hero-text {
+    margin-top: 1.5rem;
+  }
+
+  .hero-text h1 {
+    font-size: 1.25rem;
+  }
+
+  .products {
+    grid-template-columns: 1fr;
+  }
+
+  .product-image {
+    aspect-ratio: 3 / 2;
+  }
+
+  .product-name { font-size: 0.9375rem; }
+  .product-category { font-size: 0.8125rem; }
+  .product-price { font-size: 1rem; }
+}
