@@ -1,5 +1,4 @@
-// Lista de produtos. Para adicionar um tênis, é só incluir um objeto aqui
-// e colocar a imagem correspondente na pasta img/.
+
 const products = [
   {
     name: "Air Jordan 1 Mid Dutch Green",
